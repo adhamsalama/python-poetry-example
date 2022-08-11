@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "rest_api"
+version = "0.1.0"
+description = ""
+authors = ["Adham Salama <adham.salama@zohomail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.79.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+mypy = "^0.971"
+poethepoet = "^0.16.0"
+requests = "^2.28.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poe.tasks]
+start = "uvicorn rest_api.app:app"
+dev = "uvicorn rest_api.app:app --reload"
+typecheck = "mypy ."
+test = "pytest ."
